@@ -4,6 +4,6 @@ install(){
   sudo apt update
   sudo apt install gh
 }
-[[ "$OSTYPE" == "linux-gnu" ]] && ( device="Linux"; ) || ( [[ "$OSTYPE" == "linux-android" ]] && { device="Android"}; )
-[[ "$device" == "Linux" ]] && ( yes | sudo apt install curl; install; ) || ( yes | pkg install curl; yes | pkg install gh; )
+[[ "$OSTYPE" == "linux-gnu" ]] && { device="Linux"; } || { [[ "$OSTYPE" == "linux-android" ]] && device="Android"; }
+[[ "$device" == "Linux" ]] && { yes | sudo apt install curl; install; } || { yes | pkg install curl; yes | pkg install gh; }
 
